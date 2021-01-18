@@ -1,3 +1,0 @@
-"ID","CODE","NAME","RECURRENCY"
-"1","12345","mejh","rekurencija"
-"33","1234567","mejh1","rekurencija1"
