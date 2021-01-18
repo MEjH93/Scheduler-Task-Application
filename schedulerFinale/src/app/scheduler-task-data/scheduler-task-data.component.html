@@ -1,0 +1,32 @@
+<p-table [columns]="cols" [value]="schedulerTasks">
+    <ng-template pTemplate="header" let-columns>
+    <tr>
+    <th *ngFor="let col of cols">
+    {{col.header}}
+    </th>
+    </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr>
+    <td *ngFor="let col of columns">
+    {{rowData[col.field]}}
+    <div *ngIf="col.field === '?'"
+    style="display: flex;justify-content: center;">
+    <div pTooltip="Edit" tooltipPosition="top"
+    (click)="editSchedulerTask(rowData)">
+    <i _ngcontent-yiy-c2="" class="pi pi-pencil"
+    style="margin-right: 8px;"></i>
+    </div>
+    <span class="align-middle"></span>
+    <div pTooltip="Delete" tooltipPosition="top">
+    <button type="button" (click)="deleteSchedulerTask(rowData)" pButton
+    icon="pi pi-trash"
+    style="background-color: aliceblue; color: #007ad9;"></button>
+    </div>
+    </div>
+    <ng-template #elseBlock>
+    {{rowData[col.field]}}
+    </ng-template>
+    </ng-template>
+    </p-table>
+<router-outlet></router-outlet>
